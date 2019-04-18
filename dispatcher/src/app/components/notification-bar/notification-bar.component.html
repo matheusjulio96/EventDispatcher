@@ -1,0 +1,46 @@
+<li class="dropdown" dropdown>
+  <a
+    dropdownToggle
+    class="dropdown-toggle"
+    data-toggle="dropdown"
+    href="#"
+    role="button"
+    aria-haspopup="true"
+    aria-expanded="false"
+    ><i class="fas fa-bell"><span class="badge badge-pill badge-danger">{{ notificationList.length }}</span></i
+  ></a>
+  <div
+    *dropdownMenu
+    class="dropdown-menu notifications dropdown-menu-right"
+    role="menu"
+    aria-labelledby="dLabel"
+  >
+    <div class="notification-heading">
+      <h4 class="menu-title">Notifications</h4>
+      <h4 class="menu-title float-right">
+        View all<i class="fas fa-arrow-circle-right"></i>
+      </h4>
+    </div>
+    <li class="divider"></li>
+    <div class="notifications-wrapper">
+      <!-- <a class="content" href="#">
+        <div class="notification-item">
+          <h4 class="item-title">Evaluation Deadline 1 · day ago</h4>
+          <p class="item-info">Marketing 101, Video Assignment</p>
+        </div>
+      </a> -->
+      <a class="content" href="#" *ngFor="let notification of notificationList">
+        <div class="notification-item">
+          <h4 class="item-title">{{ notification.title }}</h4>
+          <p class="item-info"> {{ notification.info }} </p>
+        </div>
+      </a>
+    </div>
+    <li class="divider"></li>
+    <div class="notification-footer">
+      <h4 class="menu-title">
+        View all<i class="glyphicon glyphicon-circle-arrow-right"></i>
+      </h4>
+    </div>
+  </div>
+</li>

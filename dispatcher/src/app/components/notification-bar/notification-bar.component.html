@@ -1,14 +1,18 @@
 <li class="dropdown" dropdown>
-  <a
-    dropdownToggle
-    class="dropdown-toggle"
-    data-toggle="dropdown"
-    href="#"
-    role="button"
-    aria-haspopup="true"
-    aria-expanded="false"
-    ><i class="fas fa-bell"><span class="badge badge-pill badge-danger">{{ notificationList.length }}</span></i
-  ></a>
+  <span class="d-flex">
+      <a
+        dropdownToggle
+        class="dropdown-toggle"
+        data-toggle="dropdown"
+        href="#"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="fas fa-bell position-fixed"></i>
+      </a>
+    <span class="badge badge-pill badge-danger badget-notify">{{ notificationList.length }}</span>
+  </span>
   <div
     *dropdownMenu
     class="dropdown-menu notifications dropdown-menu-right"
@@ -23,12 +27,6 @@
     </div>
     <li class="divider"></li>
     <div class="notifications-wrapper">
-      <!-- <a class="content" href="#">
-        <div class="notification-item">
-          <h4 class="item-title">Evaluation Deadline 1 · day ago</h4>
-          <p class="item-info">Marketing 101, Video Assignment</p>
-        </div>
-      </a> -->
       <a class="content" href="#" *ngFor="let notification of notificationList">
         <div class="notification-item">
           <h4 class="item-title">{{ notification.title }}</h4>

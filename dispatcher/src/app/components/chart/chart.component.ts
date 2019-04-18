@@ -26,11 +26,11 @@ export class ChartComponent implements OnInit {
   constructor(private eventDispatcher: EventDispatcherService) {}
 
   ngOnInit() {
-    this.eventDispatcher.subscribe('atualizacaoChart', dados => {
+    EventDispatcherService.subscribe('atualizacaoChart', (dados) => {
       this.carregaGeral(dados);
     });
 
-    this.eventDispatcher.subscribe('notificacao', () => {
+    EventDispatcherService.subscribe('notificacao', () => {
       this.confNotificacao++;
 
       this.carregaNotify({
@@ -41,7 +41,6 @@ export class ChartComponent implements OnInit {
   }
 
   carregaGeral(dados: any) {
-    const abgColor: string[] = [];
 
     this.datasetGeral = {
       datasets: [

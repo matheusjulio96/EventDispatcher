@@ -6,7 +6,7 @@ export type EventHandler = (...args: any[]) => any;
   providedIn: 'root',
 })
 export class EventDispatcherService {
-  private c = new Map<string, EventHandler[]>();
+  private static c = new Map<string, EventHandler[]>();
 
   /**
    * Subscribe to an event topic. Events that get posted to that topic will trigger the provided handler.
@@ -14,7 +14,7 @@ export class EventDispatcherService {
    * @param topic the topic to subscribe to
    * @param handler the event handler
    */
-  subscribe(topic: string, ...handlers: EventHandler[]) {
+  static subscribe(topic: string, ...handlers: EventHandler[]) {
     let topics = this.c.get(topic);
     if (!topics) {
       this.c.set(topic, topics = []);
@@ -30,7 +30,7 @@ export class EventDispatcherService {
    *
    * @return true if a handler was removed
    */
-  unsubscribe(topic: string, handler?: EventHandler): boolean {
+  static unsubscribe(topic: string, handler?: EventHandler): boolean {
     if (!handler) {
       return this.c.delete(topic);
     }
@@ -60,7 +60,7 @@ export class EventDispatcherService {
    * @param topic the topic to publish to
    * @param eventData the data to send as the event
    */
-  publish(topic: string, ...args: any[]): any[] | null {
+  static publish(topic: string, ...args: any[]): any[] | null {
     const topics = this.c.get(topic);
     if (!topics) {
       return null;

@@ -11,11 +11,10 @@ export class NotificationBarComponent implements OnInit {
   notificationList = [];
 
   constructor(
-    private eventDispatcher: EventDispatcherService
   ) { }
 
   ngOnInit() {
-    this.eventDispatcher.subscribe('notificacao', (notificacao) => {
+    EventDispatcherService.subscribe('notificacao', (notificacao) => {
       this.notificationList.push(notificacao);
     });
   }

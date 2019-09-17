@@ -1,3 +1,5 @@
+//https://github.com/ionic-team/ionic/blob/master/angular/src/providers/events.ts
+
 import { Injectable } from '@angular/core';
 
 export type EventHandler = (...args: any[]) => any;
